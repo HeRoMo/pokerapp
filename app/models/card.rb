@@ -2,7 +2,7 @@
 # ポーカーの手札を表すクラス
 class Card
 
-  # ポーカーの役
+  # ポーカーの役と強さ
   module Hands
     STRAIGHT_FLUSH=:STRAIGHT_FLUSH
     FOUR_OF_A_KIND=:FOUR_OF_A_KIND
@@ -13,6 +13,19 @@ class Card
     TWO_PAIR=:TWO_PAIR
     ONE_PAIR=:ONE_PAIR
     HIGH_CARD=:HIGH_CARD
+
+    # 役の強さ
+    Strength={
+      STRAIGHT_FLUSH:80,
+      FOUR_OF_A_KIND:70,
+      FULL_HOUSE:60,
+      FLUSH:50,
+      STRAIGHT:40,
+      THREE_OF_A_KIND:30,
+      TWO_PAIR:20,
+      ONE_PAIR:10,
+      HIGH_CARD:0
+    }.freeze
   end
 
   # 手札の文字列表現フォーマット
@@ -55,8 +68,15 @@ class Card
     @cards_str
   end
 
+  # カードの強さ
+  # 現実装では 役の強さのみ
+  def strength
+    Hands::Strength[hand]
+  end
+
   private
   # 役の判定
+  # @return [sym] 役を表すシンボル
   def judge_hand
     # ペア系の役チェック
     case @num_pattern
@@ -74,7 +94,9 @@ class Card
         return judge_straight_type #ストレート系の判定
     end
   end
+
   # ストレート系の役判定
+  # @return [sym] 役を表すシンボル
   def judge_straight_type
     numbers = @nums.keys.sort
     # ロイヤルな数字パターンの処理
@@ -101,5 +123,4 @@ class Card
       end
     end
   end
-
 end

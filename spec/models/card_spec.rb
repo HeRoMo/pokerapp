@@ -62,7 +62,7 @@ describe Card, type: :model do
       it { expect(Card.new('S10 H10 D10 S4 D4').hand).to be Card::Hands::FULL_HOUSE }
       it { expect(Card.new('H9 C9 S9 H1 C1').hand).to be Card::Hands::FULL_HOUSE }
     end
-    context 'FOUR_OF_A_KIND' do
+    context 'FLUSH' do
       it { expect(Card.new('H1 H12 H10 H5 H3').hand).to be Card::Hands::FLUSH }
       it { expect(Card.new('S13 S12 S11 S9 S6').hand).to be Card::Hands::FLUSH }
     end
@@ -91,6 +91,18 @@ describe Card, type: :model do
 
   describe '#to_s' do
     it{ expect(Card.new('D1 D10 S9 C5 C4').to_s).to eq 'D1 D10 S9 C5 C4'}
+  end
+
+  describe '#strength' do
+    it 'STRAIGHT_FLUSH' do expect(Card.new('H7 H6 H5 H4 H3').strength).to be 80 end
+    it 'FOUR_OF_A_KIND' do expect(Card.new('C2 D2 H2 S2 D5').strength).to be 70 end
+    it 'FULL_HOUSE' do expect(Card.new('S10 H10 D10 S4 D4').strength).to be 60 end
+    it 'FLUSH' do expect(Card.new('S1 S12 S10 S5 S3').strength).to be 50 end
+    it 'STRAIGHT' do expect(Card.new('S1 H13 C12 H11 H10').strength).to be 40 end
+    it 'THREE_OF_A_KIND' do expect(Card.new('S12 C12 S5 C3 D12').strength).to be 30 end
+    it 'TWO_PAIR' do expect(Card.new('D11 S11 S10 C10 S9').strength).to be 20 end
+    it 'ONE_PAIR' do expect(Card.new('H9 C9 H1 D12 D10').strength).to be 10 end
+    it 'HIGH_CARD' do expect(Card.new('C13 D12 C11 H8 H7').strength).to be 0 end
   end
 
 end
