@@ -69,6 +69,7 @@ describe Card, type: :model do
     context 'STRAIGHT' do
       it { expect(Card.new('S8 S7 H6 H5 S4').hand).to be Card::Hands::STRAIGHT}
       it { expect(Card.new('D6 S5 D4 H3 C2').hand).to be Card::Hands::STRAIGHT}
+      it { expect(Card.new('D1 S13 H12 C11 H10').hand).to be Card::Hands::STRAIGHT}
     end
     context 'THREE_OF_A_KIND' do
       it { expect(Card.new('S12 C12 D12 S5 C3').hand).to be Card::Hands::THREE_OF_A_KIND}
@@ -86,6 +87,10 @@ describe Card, type: :model do
       it { expect(Card.new('D1 D10 S9 C5 C4').hand).to be Card::Hands::HIGH_CARD}
       it { expect(Card.new('C13 D12 C11 H8 H7').hand).to be Card::Hands::HIGH_CARD}
     end
+  end
+
+  describe '#to_s' do
+    it{ expect(Card.new('D1 D10 S9 C5 C4').to_s).to eq 'D1 D10 S9 C5 C4'}
   end
 
 end

@@ -27,7 +27,7 @@ class Card
     # cards のバリデーション
     cards.strip! unless cards.nil?
     raise 'bad cards' unless VALID_CARDS_PATTERN=~cards
-    cards.upcase!
+    @cards_str = cards.upcase
     # cards のパース
     @cards = cards.split(' ').uniq
     raise 'same card is included' unless @cards.size == 5
@@ -47,6 +47,12 @@ class Card
   # @return [sym] Card::Hands のいずれか
   def hand
     @hand ||= judge_hand
+  end
+
+  # 手札の文字列表現を返す
+  # @retrun [String] 手札の文字列表現
+  def to_s
+    @cards_str
   end
 
   private
@@ -80,7 +86,7 @@ class Card
       end
     end
 
-    # それ以外の処理
+    # ロイヤル以外の処理
     if (numbers.max - numbers.min) == 4 #ストレートの判定
       if @suit.size == 1
         return Hands::STRAIGHT_FLUSH
