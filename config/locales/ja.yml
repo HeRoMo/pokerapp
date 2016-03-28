@@ -21,3 +21,13 @@
 
 ja:
   hello: "こんにちは"
+  hands:
+    STRAIGHT_FLUSH: 'ストレート・フラッシュ'
+    FOUR_OF_A_KIND: 'フォー・オブ・ア・カインド'
+    FULL_HOUSE: 'フルハウス'
+    FLUSH: 'フラッシュ'
+    STRAIGHT: 'ストレート'
+    THREE_OF_A_KIND: 'スリー・オブ・ア・カインド'
+    TWO_PAIR: 'ツーペア'
+    ONE_PAIR: 'ワンペア'
+    HIGH_CARD: 'ハイカード'
