@@ -31,6 +31,7 @@ class Card
   # 手札の文字列表現フォーマット
   VALID_CARDS_PATTERN= /\A(S|H|D|C)([1-9]{1}|1[0-3]{1}) (S|H|D|C)([1-9]{1}|1[0-3]{1}) (S|H|D|C)([1-9]{1}|1[0-3]{1}) (S|H|D|C)([1-9]{1}|1[0-3]{1}) (S|H|D|C)([1-9]{1}|1[0-3]{1})\Z/i
 
+  attr_reader :cards
 
   # 手札を初期化する
   # @param cards [String] 手札の文字列。文字列のフォーマットは VALID_CARDS_PATTERN の通り
