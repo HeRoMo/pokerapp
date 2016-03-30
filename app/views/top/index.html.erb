@@ -1,0 +1,32 @@
+<div class="col-lg-12">
+<h1>役の判定</h1>
+<div class="alert alert-info">
+  <p>1文字で表されるスート(S、H、D、C)と1から13の数字の組をカードとします。</p>
+  <dl>
+    <dt>例:</dt>
+    <dd>S1 ... スペードのエース</dd>
+    <dd>H3 ... ハートの3</dd>
+    <dd>D9 ... ダイアの9</dd>
+    <dd>C13 ... クラブの13</dd>
+  </dl>
+  <p>手札は半角スペース区切りで5枚のカードを入力してください</p>
+  <dl>
+    <dt>例:</dt>
+    <dd>H1 D10 S11 H12 H13</dd>
+  </dl>
+  <p>スートは小文字でも構いません</p>
+</div>
+  <p class="lead">テキストボックスに手札を入力してください。</p>
+<div class="row">
+  <form class="">
+    <div class="form-group">
+      <input type="text" id="card" name="card"
+             class="form-control input-lg" placeholder="手札を入力してください" maxlength="19"
+             pattern="^[SHDCshdc]{1}([1-9]{1}|1[0-3]{1}) [SHDCshdc]{1}([1-9]{1}|1[0-3]{1}) [SHDCshdc]{1}([1-9]{1}|1[0-3]{1}) [SHDCshdc]{1}([1-9]{1}|1[0-3]{1}) [SHDCshdc]{1}([1-9]{1}|1[0-3]{1})$">
+    </div>
+  </form>
+</div>
+<div class="row">
+  <div id="hand" class="alert"></div>
+</div>
+</div>

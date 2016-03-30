@@ -1,0 +1,27 @@
+
+body {
+  min-height: 700px;
+}
+
+#card {
+  height: 60px;
+  font-size: xx-large;
+
+  :valid {
+    color: green;
+    font-weight: bold;
+  }
+
+  :invalid {
+    color: red;
+  }
+}
+
+#hand {
+  display: none;
+}
+
+div.has-error>#card{
+  font-weight: normal;
+  color:red;
+}
