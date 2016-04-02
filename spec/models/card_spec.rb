@@ -42,6 +42,10 @@ describe Card, type: :model do
         let(:cards){'H6 S5 C4 C1 C1'}
         it { expect{Card.new(cards)}.to raise_error 'same card is included'}
       end
+      context 'include same card different case' do
+        let(:cards){'H6 S5 C4 C1 c1'}
+        it { expect{Card.new(cards)}.to raise_error 'same card is included'}
+      end
       context 'card is nil' do
         let(:cards){nil}
         it { expect{Card.new(cards)}.to raise_error 'bad cards'}

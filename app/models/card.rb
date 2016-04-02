@@ -39,9 +39,9 @@ class Card
   # @raise ['same card is included'] cards に同一のカードが含まれる
   def initialize(cards)
     # cards のバリデーション
-    cards.strip! unless cards.nil?
+    cards = cards.strip.upcase unless cards.nil?
     raise 'bad cards' unless VALID_CARDS_PATTERN=~cards
-    @cards_str = cards.upcase
+    @cards_str = cards
     # cards のパース
     @cards = cards.split(' ').uniq
     raise 'same card is included' unless @cards.size == 5
