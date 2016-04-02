@@ -15,10 +15,10 @@
 @fontAwesomeSvgPath: font-url("fontawesome-webfont.svg#fontawesomeregular");
 
 // Font Awesome
-@import "fontawesome/font-awesome";
+//@import "fontawesome/font-awesome";
 
 // Glyphicons
-//@import "twitter/bootstrap/glyphicons.less";
+@import "twitter/bootstrap/glyphicons.less";
 
 // Your custom LESS stylesheets goes here
 //
@@ -33,10 +33,12 @@
 
 footer{
   width:100%;
-  position: fixed;
-  bottom: 0px;
+  _position: fixed;
+  _bottom: 0px;
   text-align: center;
   background-color: #f8f8f8;
   border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
   padding-top: 10px;
+  height: 40px;
 }
