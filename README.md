@@ -11,7 +11,7 @@
 ### UI
 UIには次のURLでアクセスできます。
 
- http://poker-dev.ap-northeast-1.elasticbeanstalk.com/
+ http://poker-dev.nhvresxnkp.ap-northeast-1.elasticbeanstalk.com/
 
 1文字で表されるスート(S、H、D、C)と1から13の数字の組をカードとします。
 
@@ -34,7 +34,7 @@ UIには次のURLでアクセスできます。
 
 #### リクエスト
 
-- Endpoint URL: http://poker-dev.ap-northeast-1.elasticbeanstalk.com/api/v1/poker/judge
+- Endpoint URL: http://poker-dev.nhvresxnkp.ap-northeast-1.elasticbeanstalk.com/api/v1/poker/judge
 - Method: POST
 - Content-Types: application/json
 
