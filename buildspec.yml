@@ -1,0 +1,27 @@
+version: 0.2
+
+env:
+  variables:
+    RAILS_ENV: "development"
+
+phases:
+  install:
+    commands:
+      - apt-get update -y
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - bundle install
+      - bundle exec rake spec
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - location
+    - location
+  discard-paths: yes
+  base-directory: location
